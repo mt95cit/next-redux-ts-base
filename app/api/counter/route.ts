@@ -1,16 +1,18 @@
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+/* eslint-disable no-unused-vars */
+import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
 
 interface Context {
-  params: undefined;
+  params: undefined
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function POST(request: NextRequest, context: Context) {
-  const body: { amount: number } = await request.json();
-  const { amount = 1 } = body;
+  const body: { amount: number } = await request.json()
+  const { amount = 1 } = body
 
   // simulate IO latency
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  await new Promise((resolve) => setTimeout(resolve, 500))
 
-  return NextResponse.json({ data: amount });
+  return NextResponse.json({ data: amount })
 }

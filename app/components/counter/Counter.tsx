@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { useState } from "react";
+import { useState } from 'react'
 
 import {
   decrement,
@@ -9,60 +9,49 @@ import {
   incrementByAmount,
   incrementIfOdd,
   selectCount,
-  selectStatus,
-} from "@/lib/features/counter/counterSlice";
+  selectStatus
+} from '@/lib/features/counter/counterSlice'
 
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import styles from "./Counter.module.css";
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
+import styles from './Counter.module.css'
 
 export const Counter = () => {
-  const dispatch = useAppDispatch();
-  const count = useAppSelector(selectCount);
-  const status = useAppSelector(selectStatus);
-  const [incrementAmount, setIncrementAmount] = useState("2");
+  const dispatch = useAppDispatch()
+  const count = useAppSelector(selectCount)
+  const status = useAppSelector(selectStatus)
+  const [incrementAmount, setIncrementAmount] = useState('2')
 
-  const incrementValue = Number(incrementAmount) || 0;
+  const incrementValue = Number(incrementAmount) || 0
 
   return (
     <div>
       <div className={styles.row}>
-        <button
-          className={styles.button}
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
+        <button className={styles.button} aria-label='Decrement value' onClick={() => dispatch(decrement())}>
           -
         </button>
-        <span aria-label="Count" className={styles.value}>
+        <span aria-label='Count' className={styles.value}>
           {count}
         </span>
-        <button
-          className={styles.button}
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
+        <button className={styles.button} aria-label='Increment value' onClick={() => dispatch(increment())}>
           +
         </button>
       </div>
       <div className={styles.row}>
         <input
           className={styles.textbox}
-          aria-label="Set increment amount"
+          aria-label='Set increment amount'
           value={incrementAmount}
-          type="number"
+          type='number'
           onChange={(e) => {
-            setIncrementAmount(e.target.value);
+            setIncrementAmount(e.target.value)
           }}
         />
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementByAmount(incrementValue))}
-        >
+        <button className={styles.button} onClick={() => dispatch(incrementByAmount(incrementValue))}>
           Add Amount
         </button>
         <button
           className={styles.asyncButton}
-          disabled={status !== "idle"}
+          disabled={status !== 'idle'}
           onClick={() => dispatch(incrementAsync(incrementValue))}
         >
           Add Async
@@ -70,12 +59,12 @@ export const Counter = () => {
         <button
           className={styles.button}
           onClick={() => {
-            dispatch(incrementIfOdd(incrementValue));
+            dispatch(incrementIfOdd(incrementValue))
           }}
         >
           Add If Odd
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
