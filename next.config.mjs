@@ -15,10 +15,10 @@ const nextConfig = {
       afterFiles: [
         // These rewrites are checked after pages/public files
         // are checked but before dynamic routes
-        {
-          source: '/pages/login',
-          destination: '/login'
-        }
+        // {
+        //   source: '/pages/login',
+        //   destination: '/login'
+        // }
       ]
     }
   }

@@ -1,27 +1,5 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-
-import styles from '~/styles/layout.module.css'
-
 export const SideBarAuth = () => {
-  const pathname = usePathname()
-
-  return (
-    <div>
-      SideBar
-      <nav className={styles.nav}>
-        <Link className={`${styles.link} ${pathname === '/' ? styles.active : ''}`} href='/'>
-          Home
-        </Link>
-        <Link className={`${styles.link} ${pathname === '/verify' ? styles.active : ''}`} href='/verify'>
-          Verify
-        </Link>
-        <Link className={`${styles.link} ${pathname === '/quotes' ? styles.active : ''}`} href='/quotes'>
-          Quotes
-        </Link>
-      </nav>
-    </div>
-  )
+  return <div>SideBar</div>
 }

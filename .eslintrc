@@ -9,17 +9,36 @@
     "eslint:recommended",
     "plugin:react/jsx-runtime",
     "plugin:prettier/recommended",
-    "prettier"
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "next",
+    "plugin:@next/next/recommended",
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
-    "tsconfigRootDir": "./"
+    "tsconfigRootDir": "./",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "root": true,
   "ignorePatterns": ["dist", "next.config.mjs"],
   "rules": {
-    "prettier/prettier": "warn",
+    "prettier/prettier": [
+      "warn",
+      {
+        "arrowParens": "always",
+        "semi": false,
+        "trailingComma": "none",
+        "tabWidth": 2,
+        "endOfLine": "auto",
+        "useTabs": false,
+        "singleQuote": true,
+        "printWidth": 120,
+        "jsxSingleQuote": true
+      }
+    ],
   }
 }

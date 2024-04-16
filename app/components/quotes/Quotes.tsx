@@ -1,6 +1,6 @@
 'use client'
 import { useGetQuotesQuery } from '@/lib/features/quotes/quotesApiSlice'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Quotes.module.css'
 
 const options = [5, 10, 20, 30]
@@ -9,6 +9,12 @@ export const Quotes = () => {
   const [numberOfQuotes, setNumberOfQuotes] = useState(10)
   // Using a query hook automatically fetches data and returns query values
   const { data, isError, isLoading, isSuccess } = useGetQuotesQuery(numberOfQuotes)
+
+  useEffect(() => {
+    if (numberOfQuotes > 10) {
+      console.log(222)
+    }
+  }, [numberOfQuotes])
 
   if (isError) {
     return (
