@@ -11,10 +11,10 @@ export const Quotes = () => {
   const { data, isError, isLoading, isSuccess } = useGetQuotesQuery(numberOfQuotes)
 
   useEffect(() => {
-    if (numberOfQuotes > 10) {
-      console.log(222)
+    if (data) {
+      alert('Get API success!')
     }
-  }, [numberOfQuotes])
+  }, [data])
 
   if (isError) {
     return (
